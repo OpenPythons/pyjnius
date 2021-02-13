@@ -39,8 +39,6 @@ def find_javac(platform, possible_homes):
     for home in possible_homes:
         for javac in [join(home, name), join(home, 'bin', name)]:
             if exists(javac):
-                if platform == "win32" and not PY2:  # Avoid path space execution error
-                    return '"%s"' % javac
                 return javac
     return name  # Fall back to "hope it's on the path"
 
